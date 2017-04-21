@@ -1,5 +1,6 @@
 # postgres
 # Postgres PITR Backup & Restore Demo Configuration
+#### Continuous Archiving and Point-in-Time Recovery (PITR)
 
 ## Postgres WAL Archiving 
 1. Create the WAL & backup Directory and add necessary Permisson 
@@ -46,24 +47,37 @@ bash~ rm -rf data/
 ```
 2. Initilaize the Database
 ```
+bash~ /etc/init.d/postgresql initdb
 bash~ /etc/init.d/postgresql start
+
 ```
 
 ## Restore from WAL Archiving 
-1. Extract the Basebackup...
+1. Stop the Postgres Server 
+
+```
+bash~ /etc/init.d/postgresql start
+```
+
+2. Extract the Basebackup...
 
 ```
 bash~  tar xvf /var/lib/pgsql/backups/pg_basebackup_backup.tar.gz -C /var/lib/pgsql/data
 ```
 
-2. Create recovery.conf with the below content 
+3. Create recovery.conf with the below content 
 ```
 bash~ cd /var/lib/pgsql/data
 bash~ cat recovery.conf 
 restore_command = 'cp /var/lib/pgsql/wals/%f %p'
 ```
 
-3. Upon completion of the recovery process, the server will rename recovery.conf to recovery.done
+4. Restart the Postgres DB
+
+```
+bash~ /etc/init.d/postgresql start
+```
+5. Upon completion of the recovery process, the server will rename recovery.conf to recovery.done
 
 ```
 bash~ cd /var/lib/pgsql/data
