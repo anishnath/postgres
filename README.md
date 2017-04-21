@@ -1,6 +1,7 @@
 # postgres
 # Postgres PITR Backup & Restore Demo Configuration
 #### Continuous Archiving and Point-in-Time Recovery (PITR)
+[Cick here for Video Demo ](https://youtu.be/WZps_MYYvV8) https://youtu.be/WZps_MYYvV8
 
 ## Postgres WAL Archiving 
 1. Create the WAL & backup Directory and add necessary Permisson 
