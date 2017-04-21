@@ -7,8 +7,9 @@
 
 ```
 bash~ mkdir -p  /var/lib/pgsql/wals/
-bash~ mkdir -p  /var/lib/pgsql/bac/
-bash~ chown postgres:postgres -R /var/lib/pgsql/backups/`
+bash~ mkdir -p  /var/lib/pgsql/backups/
+bash~ chown postgres:postgres -R /var/lib/pgsql/backups/
+bash~ chown postgres:postgres -R /var/lib/pgsql/wals/
 ```
 
 2. Edit the postgresql.conf with postgres user and add the below changes
