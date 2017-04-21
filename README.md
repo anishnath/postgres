@@ -70,7 +70,7 @@ bash~ /etc/init.d/postgresql stop
 bash~  tar xvf /var/lib/pgsql/backups/pg_basebackup_backup.tar.gz -C /var/lib/pgsql/data
 ```
 
-3. Create recovery.conf with the below content 
+3. Create recovery.conf with the below content and check the permission also 
 ```
 bash~ cd /var/lib/pgsql/data
 bash~ cat recovery.conf 
