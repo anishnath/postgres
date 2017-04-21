@@ -40,13 +40,17 @@ bash~  psql -s mydb
 ```
 
 ## Testing Restore 
-1. Remove the data folder 
+1. Stop the postgres 
+```
+bash~ /etc/init.d/postgresql stop
+```
+2. Remove the data folder  and Initilize the DB
 
 ```
 bash~ cd /var/lib/pgsql/
 bash~ rm -rf data/
 ```
-2. Initilaize the Database
+3. Initilaize the Database
 ```
 bash~ /etc/init.d/postgresql initdb
 bash~ /etc/init.d/postgresql start
@@ -57,7 +61,7 @@ bash~ /etc/init.d/postgresql start
 1. Stop the Postgres Server 
 
 ```
-bash~ /etc/init.d/postgresql start
+bash~ /etc/init.d/postgresql stop
 ```
 
 2. Extract the Basebackup...
